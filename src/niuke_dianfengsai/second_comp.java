@@ -1,4 +1,4 @@
-package 牛客巅峰赛;
+package niuke_dianfengsai;
 import java.util.*;
 public class second_comp {
 
@@ -89,6 +89,9 @@ public class second_comp {
             l = r;
         }
         return anx;
+    }
+
+    public static void main(String[] args){
     }
 
 
