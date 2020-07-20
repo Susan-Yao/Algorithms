@@ -3,7 +3,7 @@
 O(N^2)
 选择排序 selection
 冒泡排序 bubble
-插入排序 insert
+插入排序 insert/insertion
 
 O(N*logN)
 归并排序 merge
