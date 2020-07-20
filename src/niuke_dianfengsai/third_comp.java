@@ -14,8 +14,8 @@ public class third_comp {
         // 长度为n的数 的个数
         int num = (int)Math.pow(10, n) - (int)Math.pow(10, n-1);
         int i = (int)Math.pow(10, n-1);
-        
-        while(i<num+i){
+        int x = num + i;
+        while(i<x){
             String str = Integer.toString(i);
             int j = 0;
             int sum = 0;
