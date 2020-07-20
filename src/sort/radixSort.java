@@ -11,6 +11,7 @@ public class radixSort {
 //    根据百位，决定进哪个桶
 
     // only for no-negative value
+    // 主函数
     public static void radixSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
@@ -18,6 +19,7 @@ public class radixSort {
         radixSort(arr, 0, arr.length - 1, maxbits(arr));
     }
 
+    // 找arr上，最大的数有几位
     public static int maxbits(int[] arr) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) { // 找max
