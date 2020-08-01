@@ -1,0 +1,9 @@
+贪心
+1.前缀树 Trie
+    两个变量
+    a.pass
+    b.end
+insert, search, prefixnum, delete
+    hash表 / 数组（可能性少）
+
+2.
