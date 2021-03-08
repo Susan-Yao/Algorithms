@@ -126,10 +126,10 @@ public class lowestCommonAncestor {
         printTree(head);
         System.out.println("===============");
 
-//        Node o1 = head.left.right;
-//        Node o2 = head.right.left;
-        Node o1 = head;
-        Node o2 = head;
+        Node o1 = head.left.right;
+        Node o2 = head.right.left;
+//        Node o1 = head;
+//        Node o2 = head;
 
         System.out.println("o1 : " + o1.value);
         System.out.println("o2 : " + o2.value);

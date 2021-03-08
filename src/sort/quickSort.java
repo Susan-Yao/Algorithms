@@ -17,7 +17,7 @@ public class quickSort {
         if (L < R) {
             int random = (int) (Math.random() * (R - L + 1)); // 在L-R上取一个随机数 - 随机位置
             swap(arr, L + random, R); //将这个数与最后一个数交换
-            int[] p = partition(arr, L, R);
+            int[] p = partition(arr, L, R); // 返回等于区域(左边界，右边界) - 不可能没有
             quickSort(arr, L, p[0] - 1); // < 区
             quickSort(arr, p[1] + 1, R); // > 区
         }
@@ -26,6 +26,7 @@ public class quickSort {
     // 这是一个处理arr[l..r]的函数
     // 默认以arr[r]做划分，arr[r] -> p     <p   ==p   >p
     // 返回等于区域(左边界，右边界), 所以返回一个长度为2的数组res, res[0] res[1]
+    // 返回的为index
     public static int[] partition(int[] arr, int L, int R) {
         int less = L - 1; // <区 右边界
         int more = R; // >区 左边界

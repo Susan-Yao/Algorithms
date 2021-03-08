@@ -28,10 +28,10 @@ public class heapSort {
         swap(arr, 0, heapSize-1);  // 将最后一个数与第一个数交换 （第一个数一定是最大的）
         heapSize = heapSize - 1; // 有效长度 - 1
 
-        while (heapSize > 0) { // O(N) 当heapsize减为0时，都排好了
+        while (heapSize > 0) { // O(N) 当heapsize减为0时，都排好了 (一个数与堆断链的时候，排好了)
             heapify(arr, 0, heapSize); // O(logN)
             swap(arr, 0, heapSize-1); // O(1) 将最后一个数与第一个数交换 （第一个数一定是最大的）
-            heapSize = heapSize - 1; // 有效长度 - 1
+            heapSize = heapSize - 1; // 有效长度 - 1, 与堆断链
         }
     }
 
@@ -67,13 +67,14 @@ public class heapSort {
                 largest = index;
             }
 
-            // 如果在自己和两个孩子中，自己最大，则无需调整
+            // 如果在自己和两个孩子中，自己最大，则无需调整, 不用再往下沉了
             if (largest == index) {
                 break;
             }
-            swap(arr, largest, index); // 交换父与较大孩子
+            swap(arr, largest, index); // 交换自己与较大孩子
             index = largest; //不断向下沉
             left = index * 2 + 1;
+            right = index * 2 + 2;
         }
     }
 

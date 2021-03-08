@@ -29,12 +29,14 @@ public class isBinarySearchTree {
     }
 
     // 以x为头的树，返回三个信息
-    public static ReturnData process(Node x) {
+    public static ReturnData process1(Node x) {
         if (x == null) {
             return null;
         }
-        ReturnData leftData = process(x.left);
-        ReturnData rightData = process(x.right);
+        ReturnData leftData = process1(x.left);
+        ReturnData rightData = process1(x.right);
+
+        // 得到自己的min与max
         int min = x.value;
         int max = x.value;
         if (leftData != null) {
@@ -45,15 +47,30 @@ public class isBinarySearchTree {
             min = Math.min(min, rightData.min);
             max = Math.max(max, rightData.max);
         }
-        boolean isBST = true;
-        if (leftData != null && (!leftData.isBST || leftData.max >= x.value)) {
-            isBST = false;
+
+        // 判断自己是不是BST
+        boolean isBST = false;
+        if (    (leftData == null || (leftData.isBST && leftData.max < x.value)) // 左树达标
+            &&
+                (rightData == null || (rightData.isBST && x.value < rightData.min)) // 右树达标
+        ) {
+            isBST = true;
         }
-        if (rightData != null && (!rightData.isBST || x.value >= rightData.min)) {
-            isBST = false;
-        }
+
+
         return new ReturnData(isBST, min, max);
     }
+
+    public static boolean isBST1(Node head){
+        ReturnData in = process1(head);
+        return in.isBST;
+    }
+
+
+
+
+
+
 
     // 非递归方法 - 中序遍历的结果 是否为依次递增
     // 中序遍历 非递归
